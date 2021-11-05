@@ -1,0 +1,17 @@
+<?xml version="1.0"?>
+    <robot name="west_robot" xmlns:xacro="https://ros.org/wiki/xacro">
+        <xacro:property name="west_prefix" value="west_" />
+        <!-- KUKA KR300 -->
+        <xacro:include filename="$(find kuka_kr300_support)/urdf/kr300r2500pro.xacro" />
+
+        <link name="world" />
+
+        <joint name="world_joint" type="fixed">
+            <parent link="world" />
+            <child link="${west_prefix}base_link" />
+            <origin xyz="3.03705640 2.41234570 -0.00200000" rpy="0.00000229 0.00009014 0.00522337" />
+        </joint>
+
+        <xacro:kuka_kr300r2500pro prefix="${west_prefix}"/>
+
+    </robot>
